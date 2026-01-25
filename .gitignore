@@ -1,0 +1,84 @@
+# =========================
+# Build outputs
+# =========================
+/target/
+**/target/
+*.jar
+*.war
+*.ear
+
+# =========================
+# Logs
+# =========================
+/logs/
+*.log
+*.log.gz
+*.log.zip
+
+# =========================
+# IDE files
+# =========================
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# VS Code
+.vscode/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# NetBeans
+/nbproject/
+/dist/
+nbactions.xml
+nb-configuration.xml
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Spring / Java
+# =========================
+*.class
+hs_err_pid*
+
+# =========================
+# Maven wrapper
+# =========================
+.mvn/wrapper/maven-wrapper.jar
+
+# =========================
+# Application configs (optional)
+# =========================
+# Uncomment if you don't want env-specific files in git
+# application-*.yml
+# application-*.properties
+
+# =========================
+# Secrets (VERY IMPORTANT)
+# =========================
+*.env
+.env
+.env.*
+
+# =========================
+# Test & coverage
+# =========================
+/coverage/
+*.exec
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.swp
+*.bak
