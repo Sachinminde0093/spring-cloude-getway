@@ -19,17 +19,9 @@ import static org.springframework.cloud.gateway.server.mvc.handler.HandlerFuncti
 @Configuration
 public class GatewayRoutesConfig {
 
-    private final HandlerFilterFunction<ServerResponse, ServerResponse> commonFilter;
     private final List<GatewayRouteDef> allRoutes = new ArrayList<>();
 
-    public GatewayRoutesConfig(
-            HandlerFilterFunction<ServerResponse, ServerResponse> exceptionFilter,
-            HandlerFilterFunction<ServerResponse, ServerResponse> loggingFilter,
-            List<List<GatewayRouteDef>> routeGroups) {
-
-        // Common filters auto-applied
-        this.commonFilter = exceptionFilter.andThen(loggingFilter);
-
+    public GatewayRoutesConfig(List<List<GatewayRouteDef>> routeGroups) {
         // merge all route definition beans
         routeGroups.forEach(allRoutes::addAll);
     }
@@ -41,13 +33,13 @@ public class GatewayRoutesConfig {
 
         for (GatewayRouteDef def : allRoutes) {
 
-            HandlerFilterFunction<ServerResponse, ServerResponse> finalFilter =
-                    combine(commonFilter, def.extraFilters());
+            HandlerFilterFunction<ServerResponse, ServerResponse> routeFilter =
+                    combine(def.extraFilters());
 
             for (HttpMethod method : def.methods()) {
 
                 RouterFunction<ServerResponse> rf =
-                        buildRoute(def, method, finalFilter);
+                        buildRoute(def, method, routeFilter);
 
                 result = (result == null) ? rf : result.and(rf);
             }
@@ -55,13 +47,18 @@ public class GatewayRoutesConfig {
         return result;
     }
 
+    /**
+     * Combine route-specific filters only
+     */
     private HandlerFilterFunction<ServerResponse, ServerResponse> combine(
-            HandlerFilterFunction<ServerResponse, ServerResponse> common,
-            List<HandlerFilterFunction<ServerResponse, ServerResponse>> extras) {
+            List<HandlerFilterFunction<ServerResponse, ServerResponse>> filters) {
 
-        HandlerFilterFunction<ServerResponse, ServerResponse> chain = common;
-        for (var f : extras) {
-            chain = chain.andThen(f);
+        // ✅ Correct no-op filter for WebMVC
+        HandlerFilterFunction<ServerResponse, ServerResponse> chain =
+                (request, next) -> next.handle(request);
+
+        for (HandlerFilterFunction<ServerResponse, ServerResponse> filter : filters) {
+            chain = chain.andThen(filter);
         }
         return chain;
     }
