@@ -1,32 +1,46 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true">
+<configuration>
 
-    <property name="LOG_PATH" value="./logs"/>
+    <property name="LOG_HOME" value="logs"/>
 
+    <property name="LOG_PATTERN"
+              value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %logger %level -%n%msg%n"/>
+
+    <!-- Console -->
+    <appender name="CONSOLE"
+              class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- File with ZIP rollover -->
     <appender name="FILE"
               class="ch.qos.logback.core.rolling.RollingFileAppender">
 
-        <file>${LOG_PATH}/gateway.log</file>
+        <file>${LOG_HOME}/gateway.log</file>
 
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>
-                ${LOG_PATH}/gateway-%d{yyyy-MM-dd}.%i.log.gz
+                ${LOG_HOME}/archive/gateway-%d{yyyy-MM-dd}.%i.log.zip
             </fileNamePattern>
-            <maxFileSize>50MB</maxFileSize>
+
+            <timeBasedFileNamingAndTriggeringPolicy
+                    class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
 
-        <!-- ✅ FIXED ENCODER -->
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [corr=%X{correlationId}] %-5level %logger{36} - %msg%n</pattern>
+            <pattern>${LOG_PATTERN}</pattern>
         </encoder>
-
     </appender>
 
-    <logger name="com.example.demo" level="INFO" additivity="false">
-        <appender-ref ref="FILE"/>
-    </logger>
-
     <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>
 
