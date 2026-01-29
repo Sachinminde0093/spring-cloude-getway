@@ -2,6 +2,7 @@ package com.example.demo.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.slf4j.MDC;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.function.HandlerFilterFunction;
@@ -22,7 +23,7 @@ public class GlobalExceptionFilter {
             } catch (Exception ex) {
 
                 log.error(
-                        "Gateway error | {} {}",
+                        "EXCEPTION | method={} path={}",
                         request.method(),
                         request.path(),
                         ex
