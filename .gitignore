@@ -11,7 +11,7 @@
 # Logs
 # =========================
 /logs/
-*.log
+#*.log
 *.log.gz
 *.log.zip
 
