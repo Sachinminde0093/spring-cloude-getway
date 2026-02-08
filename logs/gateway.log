@@ -1,0 +1,583 @@
+
+2026-02-08 13:53:54.267 [SpringApplicationShutdownHook] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-08 13:53:54.280 [tomcat-shutdown] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Graceful shutdown complete
+2026-02-08 13:53:56.368 [background-preinit] org.hibernate.validator.internal.util.Version INFO -
+HV000001: Hibernate Validator 9.0.1.Final
+2026-02-08 13:53:56.422 [main] com.example.demo.DemoApplication INFO -
+Starting DemoApplication using Java 21.0.7 with PID 12348 (C:\Users\Sachin\Desktop\projects\diligenta\demo\target\classes started by Sachin in C:\Users\Sachin\Desktop\projects\diligenta\demo)
+2026-02-08 13:53:56.423 [main] com.example.demo.DemoApplication INFO -
+No active profile set, falling back to 1 default profile: "default"
+2026-02-08 13:53:57.316 [main] org.springframework.cloud.context.scope.GenericScope INFO -
+BeanFactory id=969996d1-7b3b-3fcc-b1bf-fbde4a0df8dd
+2026-02-08 13:53:57.625 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat initialized with port 8080 (http)
+2026-02-08 13:53:57.638 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-08 13:53:57.640 [main] org.apache.catalina.core.StandardService INFO -
+Starting service [Tomcat]
+2026-02-08 13:53:57.640 [main] org.apache.catalina.core.StandardEngine INFO -
+Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-08 13:53:57.694 [main] org.springframework.boot.web.context.servlet.WebApplicationContextInitializer INFO -
+Root WebApplicationContext: initialization completed in 1214 ms
+2026-02-08 13:53:58.375 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Starting ProtocolHandler ["http-nio-8080"]
+2026-02-08 13:53:58.389 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat started on port 8080 (http) with context path '/'
+2026-02-08 13:53:58.407 [main] com.example.demo.DemoApplication INFO -
+Started DemoApplication in 2.666 seconds (process running for 3.391)
+2026-02-08 13:54:17.223 [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] INFO -
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-08 13:54:17.224 [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet INFO -
+Initializing Servlet 'dispatcherServlet'
+2026-02-08 13:54:17.225 [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet INFO -
+Completed initialization in 1 ms
+2026-02-08 13:54:17.286 [http-nio-8080-exec-2] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : ce1b3406-7806-44a1-bdbf-6027340b5bad
+CorrelationId : 110b22af-df52-438e-aace-5f1b61d2e2a7
+Method        : POST
+URI           : http://localhost:8081/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 13:54:17.346 [http-nio-8080-exec-2] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : ce1b3406-7806-44a1-bdbf-6027340b5bad
+CorrelationId : 110b22af-df52-438e-aace-5f1b61d2e2a7
+Status        : 200 OK
+
+2026-02-08 13:54:17.355 [http-nio-8080-exec-2] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : ce1b3406-7806-44a1-bdbf-6027340b5bad
+CorrelationId : 110b22af-df52-438e-aace-5f1b61d2e2a7
+Method        : POST
+Path          : /get81
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 13:54:17.357 [http-nio-8080-exec-2] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : ce1b3406-7806-44a1-bdbf-6027340b5bad
+CorrelationId : 110b22af-df52-438e-aace-5f1b61d2e2a7
+Status        : 200
+TimeTaken(ms): 102
+
+2026-02-08 18:07:41.237 [SpringApplicationShutdownHook] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-08 18:07:41.265 [tomcat-shutdown] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Graceful shutdown complete
+2026-02-08 18:07:46.450 [background-preinit] org.hibernate.validator.internal.util.Version INFO -
+HV000001: Hibernate Validator 9.0.1.Final
+2026-02-08 18:07:46.547 [main] com.example.demo.DemoApplication INFO -
+Starting DemoApplication using Java 21.0.7 with PID 11404 (C:\Users\Sachin\Desktop\projects\diligenta\demo\target\classes started by Sachin in C:\Users\Sachin\Desktop\projects\diligenta\demo)
+2026-02-08 18:07:46.549 [main] com.example.demo.DemoApplication INFO -
+No active profile set, falling back to 1 default profile: "default"
+2026-02-08 18:07:47.698 [main] org.springframework.cloud.context.scope.GenericScope INFO -
+BeanFactory id=969996d1-7b3b-3fcc-b1bf-fbde4a0df8dd
+2026-02-08 18:07:48.056 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat initialized with port 8080 (http)
+2026-02-08 18:07:48.068 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:07:48.073 [main] org.apache.catalina.core.StandardService INFO -
+Starting service [Tomcat]
+2026-02-08 18:07:48.073 [main] org.apache.catalina.core.StandardEngine INFO -
+Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-08 18:07:48.138 [main] org.springframework.boot.web.context.servlet.WebApplicationContextInitializer INFO -
+Root WebApplicationContext: initialization completed in 1501 ms
+2026-02-08 18:07:48.893 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Starting ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:07:48.910 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat started on port 8080 (http) with context path '/'
+2026-02-08 18:07:48.928 [main] com.example.demo.DemoApplication INFO -
+Started DemoApplication in 3.38 seconds (process running for 4.394)
+2026-02-08 18:07:57.221 [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] INFO -
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-08 18:07:57.221 [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet INFO -
+Initializing Servlet 'dispatcherServlet'
+2026-02-08 18:07:57.226 [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet INFO -
+Completed initialization in 2 ms
+2026-02-08 18:07:57.274 [http-nio-8080-exec-2] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : a7cb2051-dd05-4978-b3af-d7a9907eefc6
+CorrelationId : 6a4bf171-eaaa-4021-8dd7-1bf4a6f58796
+Method        : POST
+Path          : /get81
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : <empty>
+
+2026-02-08 18:07:57.322 [http-nio-8080-exec-2] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : a7cb2051-dd05-4978-b3af-d7a9907eefc6
+CorrelationId : 6a4bf171-eaaa-4021-8dd7-1bf4a6f58796
+Method        : POST
+URI           : http://localhost:8081/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:07:57.458 [http-nio-8080-exec-2] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : a7cb2051-dd05-4978-b3af-d7a9907eefc6
+CorrelationId : 6a4bf171-eaaa-4021-8dd7-1bf4a6f58796
+Status        : 200 OK
+
+2026-02-08 18:07:57.471 [http-nio-8080-exec-2] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : a7cb2051-dd05-4978-b3af-d7a9907eefc6
+CorrelationId : 6a4bf171-eaaa-4021-8dd7-1bf4a6f58796
+Status        : 200
+TimeTaken(ms): 197
+
+2026-02-08 18:09:50.507 [SpringApplicationShutdownHook] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-08 18:09:50.527 [tomcat-shutdown] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Graceful shutdown complete
+2026-02-08 18:09:55.071 [background-preinit] org.hibernate.validator.internal.util.Version INFO -
+HV000001: Hibernate Validator 9.0.1.Final
+2026-02-08 18:09:55.163 [main] com.example.demo.DemoApplication INFO -
+Starting DemoApplication using Java 21.0.7 with PID 10232 (C:\Users\Sachin\Desktop\projects\diligenta\demo\target\classes started by Sachin in C:\Users\Sachin\Desktop\projects\diligenta\demo)
+2026-02-08 18:09:55.165 [main] com.example.demo.DemoApplication INFO -
+No active profile set, falling back to 1 default profile: "default"
+2026-02-08 18:09:56.251 [main] org.springframework.cloud.context.scope.GenericScope INFO -
+BeanFactory id=969996d1-7b3b-3fcc-b1bf-fbde4a0df8dd
+2026-02-08 18:09:56.615 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat initialized with port 8080 (http)
+2026-02-08 18:09:56.626 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:09:56.628 [main] org.apache.catalina.core.StandardService INFO -
+Starting service [Tomcat]
+2026-02-08 18:09:56.628 [main] org.apache.catalina.core.StandardEngine INFO -
+Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-08 18:09:56.690 [main] org.springframework.boot.web.context.servlet.WebApplicationContextInitializer INFO -
+Root WebApplicationContext: initialization completed in 1447 ms
+2026-02-08 18:09:57.438 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Starting ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:09:57.452 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat started on port 8080 (http) with context path '/'
+2026-02-08 18:09:57.471 [main] com.example.demo.DemoApplication INFO -
+Started DemoApplication in 3.319 seconds (process running for 4.246)
+2026-02-08 18:10:09.134 [SpringApplicationShutdownHook] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-08 18:10:09.153 [tomcat-shutdown] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Graceful shutdown complete
+2026-02-08 18:10:12.237 [background-preinit] org.hibernate.validator.internal.util.Version INFO -
+HV000001: Hibernate Validator 9.0.1.Final
+2026-02-08 18:10:12.333 [main] com.example.demo.DemoApplication INFO -
+Starting DemoApplication using Java 21.0.7 with PID 26140 (C:\Users\Sachin\Desktop\projects\diligenta\demo\target\classes started by Sachin in C:\Users\Sachin\Desktop\projects\diligenta\demo)
+2026-02-08 18:10:12.333 [main] com.example.demo.DemoApplication INFO -
+No active profile set, falling back to 1 default profile: "default"
+2026-02-08 18:10:13.564 [main] org.springframework.cloud.context.scope.GenericScope INFO -
+BeanFactory id=969996d1-7b3b-3fcc-b1bf-fbde4a0df8dd
+2026-02-08 18:10:14.004 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat initialized with port 8080 (http)
+2026-02-08 18:10:14.020 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:10:14.022 [main] org.apache.catalina.core.StandardService INFO -
+Starting service [Tomcat]
+2026-02-08 18:10:14.022 [main] org.apache.catalina.core.StandardEngine INFO -
+Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-08 18:10:14.101 [main] org.springframework.boot.web.context.servlet.WebApplicationContextInitializer INFO -
+Root WebApplicationContext: initialization completed in 1680 ms
+2026-02-08 18:10:15.064 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Starting ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:10:15.080 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat started on port 8080 (http) with context path '/'
+2026-02-08 18:10:15.103 [main] com.example.demo.DemoApplication INFO -
+Started DemoApplication in 3.849 seconds (process running for 4.852)
+2026-02-08 18:10:22.893 [http-nio-8080-exec-3] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] INFO -
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-08 18:10:22.895 [http-nio-8080-exec-3] org.springframework.web.servlet.DispatcherServlet INFO -
+Initializing Servlet 'dispatcherServlet'
+2026-02-08 18:10:22.897 [http-nio-8080-exec-3] org.springframework.web.servlet.DispatcherServlet INFO -
+Completed initialization in 2 ms
+2026-02-08 18:10:22.949 [http-nio-8080-exec-3] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : 12720148-5457-499e-9221-bc59d9790c1d
+CorrelationId : d56193f7-e9a5-42f3-8af9-d08955dc3b32
+Method        : POST
+Path          : /get81
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93, X-Request-Id=12720148-5457-499e-9221-bc59d9790c1d, X-Correlation-Id=d56193f7-e9a5-42f3-8af9-d08955dc3b32}
+
+2026-02-08 18:10:23.001 [http-nio-8080-exec-3] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : 12720148-5457-499e-9221-bc59d9790c1d
+CorrelationId : d56193f7-e9a5-42f3-8af9-d08955dc3b32
+Method        : POST
+URI           : http://localhost:8081/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:10:23.101 [http-nio-8080-exec-3] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : 12720148-5457-499e-9221-bc59d9790c1d
+CorrelationId : d56193f7-e9a5-42f3-8af9-d08955dc3b32
+Status        : 200 OK
+
+2026-02-08 18:10:23.114 [http-nio-8080-exec-3] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : 12720148-5457-499e-9221-bc59d9790c1d
+CorrelationId : d56193f7-e9a5-42f3-8af9-d08955dc3b32
+Method        : POST
+Path          : /get81
+Status        : 200
+TimeTaken(ms): 165
+
+2026-02-08 18:11:06.779 [SpringApplicationShutdownHook] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-08 18:11:06.799 [tomcat-shutdown] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Graceful shutdown complete
+2026-02-08 18:11:11.241 [background-preinit] org.hibernate.validator.internal.util.Version INFO -
+HV000001: Hibernate Validator 9.0.1.Final
+2026-02-08 18:11:11.330 [main] com.example.demo.DemoApplication INFO -
+Starting DemoApplication using Java 21.0.7 with PID 16176 (C:\Users\Sachin\Desktop\projects\diligenta\demo\target\classes started by Sachin in C:\Users\Sachin\Desktop\projects\diligenta\demo)
+2026-02-08 18:11:11.330 [main] com.example.demo.DemoApplication INFO -
+No active profile set, falling back to 1 default profile: "default"
+2026-02-08 18:11:12.546 [main] org.springframework.cloud.context.scope.GenericScope INFO -
+BeanFactory id=969996d1-7b3b-3fcc-b1bf-fbde4a0df8dd
+2026-02-08 18:11:13.009 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat initialized with port 8080 (http)
+2026-02-08 18:11:13.030 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:11:13.030 [main] org.apache.catalina.core.StandardService INFO -
+Starting service [Tomcat]
+2026-02-08 18:11:13.030 [main] org.apache.catalina.core.StandardEngine INFO -
+Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-08 18:11:13.131 [main] org.springframework.boot.web.context.servlet.WebApplicationContextInitializer INFO -
+Root WebApplicationContext: initialization completed in 1718 ms
+2026-02-08 18:11:14.066 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Starting ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:11:14.083 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat started on port 8080 (http) with context path '/'
+2026-02-08 18:11:14.109 [main] com.example.demo.DemoApplication INFO -
+Started DemoApplication in 3.78 seconds (process running for 4.678)
+2026-02-08 18:11:23.374 [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] INFO -
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-08 18:11:23.374 [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet INFO -
+Initializing Servlet 'dispatcherServlet'
+2026-02-08 18:11:23.381 [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet INFO -
+Completed initialization in 7 ms
+2026-02-08 18:11:23.480 [http-nio-8080-exec-2] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : 4e572942-311f-4040-b000-9021f3068458
+CorrelationId : a4e87394-bad1-4ba0-ad10-e9b28563c340
+Method        : POST
+URI           : http://localhost:8081/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:11:23.600 [http-nio-8080-exec-2] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : 4e572942-311f-4040-b000-9021f3068458
+CorrelationId : a4e87394-bad1-4ba0-ad10-e9b28563c340
+Status        : 200 OK
+
+2026-02-08 18:11:23.622 [http-nio-8080-exec-2] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : 4e572942-311f-4040-b000-9021f3068458
+CorrelationId : a4e87394-bad1-4ba0-ad10-e9b28563c340
+Method        : POST
+Path          : /get81
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:11:23.622 [http-nio-8080-exec-2] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : 4e572942-311f-4040-b000-9021f3068458
+CorrelationId : a4e87394-bad1-4ba0-ad10-e9b28563c340
+Status        : 200
+TimeTaken(ms): 191
+
+2026-02-08 18:12:18.852 [http-nio-8080-exec-3] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : 244a8f97-d80e-4cae-b5fb-ad2422025494
+CorrelationId : 2b69d831-8ecf-40c2-8468-8daf1b823839
+Method        : POST
+Path          : /get82
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : <empty>
+
+2026-02-08 18:12:18.853 [http-nio-8080-exec-3] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : 244a8f97-d80e-4cae-b5fb-ad2422025494
+CorrelationId : 2b69d831-8ecf-40c2-8468-8daf1b823839
+Status        : 401
+TimeTaken(ms): 24
+
+2026-02-08 18:19:11.545 [http-nio-8080-exec-6] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : 86cfcd78-8cb6-4046-81d7-f914125d73df
+CorrelationId : 6fdb9fbc-35d5-469e-ae92-941f500a714f
+Method        : GET
+Path          : /get82
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : <payload-skipped>
+
+2026-02-08 18:19:11.545 [http-nio-8080-exec-6] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : 86cfcd78-8cb6-4046-81d7-f914125d73df
+CorrelationId : 6fdb9fbc-35d5-469e-ae92-941f500a714f
+Status        : 401
+TimeTaken(ms): 2
+
+2026-02-08 18:19:20.230 [http-nio-8080-exec-7] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : f02e6a83-a620-4a9d-8855-3dbd9717e96d
+CorrelationId : 32065b30-303a-44bb-85c6-62beb16b44db
+Method        : GET
+URI           : http://localhost:8081/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : <payload-skipped>
+
+2026-02-08 18:19:20.280 [http-nio-8080-exec-7] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : f02e6a83-a620-4a9d-8855-3dbd9717e96d
+CorrelationId : 32065b30-303a-44bb-85c6-62beb16b44db
+Status        : 200 OK
+
+2026-02-08 18:19:20.284 [http-nio-8080-exec-7] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : f02e6a83-a620-4a9d-8855-3dbd9717e96d
+CorrelationId : 32065b30-303a-44bb-85c6-62beb16b44db
+Method        : GET
+Path          : /get81
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : <payload-skipped>
+
+2026-02-08 18:19:20.284 [http-nio-8080-exec-7] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : f02e6a83-a620-4a9d-8855-3dbd9717e96d
+CorrelationId : 32065b30-303a-44bb-85c6-62beb16b44db
+Status        : 200
+TimeTaken(ms): 56
+
+2026-02-08 18:19:27.666 [http-nio-8080-exec-8] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : cc0b3134-3c60-41db-9cdf-307047e6697d
+CorrelationId : 47b79be3-d7f6-4d5e-a35a-2c81954afdf9
+Method        : POST
+URI           : http://localhost:8081/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:19:27.677 [http-nio-8080-exec-8] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : cc0b3134-3c60-41db-9cdf-307047e6697d
+CorrelationId : 47b79be3-d7f6-4d5e-a35a-2c81954afdf9
+Status        : 200 OK
+
+2026-02-08 18:19:27.679 [http-nio-8080-exec-8] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : cc0b3134-3c60-41db-9cdf-307047e6697d
+CorrelationId : 47b79be3-d7f6-4d5e-a35a-2c81954afdf9
+Method        : POST
+Path          : /get81
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:19:27.680 [http-nio-8080-exec-8] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : cc0b3134-3c60-41db-9cdf-307047e6697d
+CorrelationId : 47b79be3-d7f6-4d5e-a35a-2c81954afdf9
+Status        : 200
+TimeTaken(ms): 15
+
+2026-02-08 18:23:22.267 [SpringApplicationShutdownHook] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-08 18:23:22.291 [tomcat-shutdown] org.springframework.boot.tomcat.GracefulShutdown INFO -
+Graceful shutdown complete
+2026-02-08 18:23:27.874 [background-preinit] org.hibernate.validator.internal.util.Version INFO -
+HV000001: Hibernate Validator 9.0.1.Final
+2026-02-08 18:23:27.986 [main] com.example.demo.DemoApplication INFO -
+Starting DemoApplication using Java 21.0.7 with PID 19808 (C:\Users\Sachin\Desktop\projects\diligenta\demo\target\classes started by Sachin in C:\Users\Sachin\Desktop\projects\diligenta\demo)
+2026-02-08 18:23:27.988 [main] com.example.demo.DemoApplication INFO -
+No active profile set, falling back to 1 default profile: "default"
+2026-02-08 18:23:29.805 [main] org.springframework.cloud.context.scope.GenericScope INFO -
+BeanFactory id=969996d1-7b3b-3fcc-b1bf-fbde4a0df8dd
+2026-02-08 18:23:30.519 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat initialized with port 8080 (http)
+2026-02-08 18:23:30.545 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Initializing ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:23:30.550 [main] org.apache.catalina.core.StandardService INFO -
+Starting service [Tomcat]
+2026-02-08 18:23:30.551 [main] org.apache.catalina.core.StandardEngine INFO -
+Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-08 18:23:30.672 [main] org.springframework.boot.web.context.servlet.WebApplicationContextInitializer INFO -
+Root WebApplicationContext: initialization completed in 2515 ms
+2026-02-08 18:23:32.201 [main] org.apache.coyote.http11.Http11NioProtocol INFO -
+Starting ProtocolHandler ["http-nio-8080"]
+2026-02-08 18:23:32.238 [main] org.springframework.boot.tomcat.TomcatWebServer INFO -
+Tomcat started on port 8080 (http) with context path '/'
+2026-02-08 18:23:32.273 [main] com.example.demo.DemoApplication INFO -
+Started DemoApplication in 5.609 seconds (process running for 6.887)
+2026-02-08 18:23:32.373 [http-nio-8080-exec-2] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] INFO -
+Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-08 18:23:32.373 [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet INFO -
+Initializing Servlet 'dispatcherServlet'
+2026-02-08 18:23:32.384 [http-nio-8080-exec-2] org.springframework.web.servlet.DispatcherServlet INFO -
+Completed initialization in 3 ms
+2026-02-08 18:23:32.550 [http-nio-8080-exec-2] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : be3e8933-e921-4941-bea3-03848ba5e3de
+CorrelationId : f24914c7-40af-48e1-b7e8-b1de4ae83dcc
+Method        : POST
+URI           : http://localhost:8081/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:23:32.709 [http-nio-8080-exec-2] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : be3e8933-e921-4941-bea3-03848ba5e3de
+CorrelationId : f24914c7-40af-48e1-b7e8-b1de4ae83dcc
+Status        : 200 OK
+
+2026-02-08 18:23:32.732 [http-nio-8080-exec-2] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : be3e8933-e921-4941-bea3-03848ba5e3de
+CorrelationId : f24914c7-40af-48e1-b7e8-b1de4ae83dcc
+Method        : POST
+Path          : /get81
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:23:32.732 [http-nio-8080-exec-2] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : be3e8933-e921-4941-bea3-03848ba5e3de
+CorrelationId : f24914c7-40af-48e1-b7e8-b1de4ae83dcc
+Status        : 200
+TimeTaken(ms): 273
+
+2026-02-08 18:23:41.041 [http-nio-8080-exec-3] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : eb7a5956-0967-4d2c-851a-2cf3bb45ece2
+CorrelationId : 7fcf63e3-3955-4fcf-beb4-02c51154b941
+Method        : POST
+URI           : http://localhost:8081/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:23:41.059 [http-nio-8080-exec-3] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : eb7a5956-0967-4d2c-851a-2cf3bb45ece2
+CorrelationId : 7fcf63e3-3955-4fcf-beb4-02c51154b941
+Status        : 200 OK
+
+2026-02-08 18:23:41.063 [http-nio-8080-exec-3] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : eb7a5956-0967-4d2c-851a-2cf3bb45ece2
+CorrelationId : 7fcf63e3-3955-4fcf-beb4-02c51154b941
+Method        : POST
+Path          : /get81
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:23:41.063 [http-nio-8080-exec-3] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : eb7a5956-0967-4d2c-851a-2cf3bb45ece2
+CorrelationId : 7fcf63e3-3955-4fcf-beb4-02c51154b941
+Status        : 200
+TimeTaken(ms): 24
+
+2026-02-08 18:23:46.724 [http-nio-8080-exec-4] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM REQUEST]
+RequestId     : 5dc4ad2d-5a6d-488e-a50f-3ae6ef1088a3
+CorrelationId : 88b18032-defe-4658-aebc-8427ea96a431
+Method        : POST
+URI           : http://localhost:8082/employee
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json;charset=UTF-8, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Accept-Encoding=gzip, deflate, br, Content-Length=93, Authorization=Bearer my-****}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:23:47.050 [http-nio-8080-exec-4] com.example.demo.filter.DownstreamLoggingInterceptor INFO -
+[DOWNSTREAM RESPONSE]
+RequestId     : 5dc4ad2d-5a6d-488e-a50f-3ae6ef1088a3
+CorrelationId : 88b18032-defe-4658-aebc-8427ea96a431
+Status        : 401 UNAUTHORIZED
+
+2026-02-08 18:23:47.053 [http-nio-8080-exec-4] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY REQUEST]
+RequestId     : 5dc4ad2d-5a6d-488e-a50f-3ae6ef1088a3
+CorrelationId : 88b18032-defe-4658-aebc-8427ea96a431
+Method        : POST
+Path          : /get82
+Headers       : {ughh=kjnkj, kjkj=kjbk, Content-Type=application/json, User-Agent=PostmanRuntime/7.46.1, Accept=*/*, Host=localhost:8080, Accept-Encoding=gzip, deflate, br, Connection=keep-alive, Content-Length=93}
+Payload       : {
+  "role": "Backend Developer schi",
+  "name": "Sachin",
+  "id": 1,
+  "salary": 75000
+}
+
+2026-02-08 18:23:47.053 [http-nio-8080-exec-4] com.example.demo.filter.GlobalLoggingInterceptor INFO -
+[GATEWAY RESPONSE]
+RequestId     : 5dc4ad2d-5a6d-488e-a50f-3ae6ef1088a3
+CorrelationId : 88b18032-defe-4658-aebc-8427ea96a431
+Status        : 401
+TimeTaken(ms): 331
+xd
+
+
