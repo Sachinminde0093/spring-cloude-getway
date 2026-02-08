@@ -7,7 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
+import org.springframework.web.util.ContentCachingRequestWrapper;
 
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 
 @Component
@@ -27,41 +29,16 @@ public class GlobalLoggingInterceptor implements HandlerInterceptor {
 
         request.setAttribute(START_TIME, System.currentTimeMillis());
 
-        // 🔹 Request ID (always new per request)
         String requestId = UUID.randomUUID().toString();
+        String correlationId = Optional
+                .ofNullable(request.getHeader(CORRELATION_ID))
+                .orElse(UUID.randomUUID().toString());
 
-        // 🔹 Correlation ID (reuse or generate)
-        String correlationId = request.getHeader(CORRELATION_ID);
-        if (correlationId == null || correlationId.isBlank()) {
-            correlationId = UUID.randomUUID().toString();
-        }
-
-        // 🔹 MDC
         MDC.put("requestId", requestId);
         MDC.put("correlationId", correlationId);
 
-        // 🔹 Response headers
         response.setHeader(REQUEST_ID, requestId);
         response.setHeader(CORRELATION_ID, correlationId);
-
-        Map<String, String> headers =
-                extractHeaders(request, requestId, correlationId);
-
-        // 🔥 Incoming request log (REQUEST ID AT TOP)
-        log.info("""
-[GATEWAY REQUEST]
-RequestId     : {}
-CorrelationId : {}
-Method        : {}
-Path          : {}
-Headers       : {}
-""",
-                requestId,
-                correlationId,
-                request.getMethod(),
-                request.getRequestURI(),
-                headers
-        );
 
         return true;
     }
@@ -73,57 +50,72 @@ Headers       : {}
                                 Exception ex) {
 
         try {
-            long startTime = (long) request.getAttribute(START_TIME);
-            long timeTaken = System.currentTimeMillis() - startTime;
+            long start = (long) request.getAttribute(START_TIME);
+            long timeTaken = System.currentTimeMillis() - start;
 
-            // 🔥 Outgoing response log (same structure)
+            // 🔥 Gateway REQUEST (payload only for POST / PUT)
             log.info("""
-[GATEWAY RESPONSE]
+[GATEWAY REQUEST]
 RequestId     : {}
 CorrelationId : {}
 Method        : {}
 Path          : {}
-Status        : {}
-TimeTaken(ms): {}
+Headers       : {}
+Payload       : {}
 """,
                     MDC.get("requestId"),
                     MDC.get("correlationId"),
                     request.getMethod(),
                     request.getRequestURI(),
+                    extractHeaders(request),
+                    extractPayload(request)
+            );
+
+            // 🔥 Gateway RESPONSE (NO payload)
+            log.info("""
+[GATEWAY RESPONSE]
+RequestId     : {}
+CorrelationId : {}
+Status        : {}
+TimeTaken(ms): {}
+""",
+                    MDC.get("requestId"),
+                    MDC.get("correlationId"),
                     response.getStatus(),
                     timeTaken
             );
 
-            if (ex != null) {
-                log.error("""
-[GATEWAY RESPONSE ERROR]
-RequestId     : {}
-CorrelationId : {}
-Method        : {}
-Path          : {}
-Exception     : {}
-Message       : {}
-""",
-                        MDC.get("requestId"),
-                        MDC.get("correlationId"),
-                        request.getMethod(),
-                        request.getRequestURI(),
-                        ex.getClass().getName(),
-                        ex.getMessage(),
-                        ex
-                );
-            }
         } finally {
-            MDC.clear(); // 🔥 VERY IMPORTANT
+            MDC.clear();
         }
     }
 
     // ---------------- helpers ----------------
 
-    private Map<String, String> extractHeaders(HttpServletRequest request,
-                                               String requestId,
-                                               String correlationId) {
+    private boolean shouldLogPayload(HttpServletRequest request) {
+        return "POST".equals(request.getMethod())
+                || "PUT".equals(request.getMethod());
+    }
 
+    private String extractPayload(HttpServletRequest request) {
+
+        if (!shouldLogPayload(request)) {
+            return "<payload-skipped>";
+        }
+
+        if (!(request instanceof ContentCachingRequestWrapper wrapper)) {
+            return "<payload-not-cached>";
+        }
+
+        byte[] body = wrapper.getContentAsByteArray();
+        if (body.length == 0) {
+            return "<empty>";
+        }
+
+        return new String(body, StandardCharsets.UTF_8);
+    }
+
+    private Map<String, String> extractHeaders(HttpServletRequest request) {
         Map<String, String> headers = new LinkedHashMap<>();
         Enumeration<String> names = request.getHeaderNames();
 
@@ -132,11 +124,6 @@ Message       : {}
             if (isSensitive(name)) continue;
             headers.put(name, request.getHeader(name));
         }
-
-        // force IDs into logged headers
-        headers.put(REQUEST_ID, requestId);
-        headers.put(CORRELATION_ID, correlationId);
-
         return headers;
     }
 

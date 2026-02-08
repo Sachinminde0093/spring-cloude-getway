@@ -26,7 +26,7 @@ public class Service8082Routes {
                         "http://localhost:8082",
                         "/employee",
                         Set.of(HttpMethod.GET, HttpMethod.POST),
-                        List.of(authFilter.filter(), auditFilter.filter())
+                        List.of(auditFilter.filter())
                 )
         );
     }
