@@ -18,6 +18,7 @@ public class GlobalLoggingInterceptor implements HandlerInterceptor {
 
     private static final String START_TIME = "startTime";
     private static final String CORRELATION_ID = "X-Correlation-Id";
+    private static final String REQUEST_ID = "X-Request-Id";
 
     @Override
     public boolean preHandle(HttpServletRequest request,
@@ -26,20 +27,41 @@ public class GlobalLoggingInterceptor implements HandlerInterceptor {
 
         request.setAttribute(START_TIME, System.currentTimeMillis());
 
+        // 🔹 Request ID (always new per request)
+        String requestId = UUID.randomUUID().toString();
+
+        // 🔹 Correlation ID (reuse or generate)
         String correlationId = request.getHeader(CORRELATION_ID);
         if (correlationId == null || correlationId.isBlank()) {
             correlationId = UUID.randomUUID().toString();
         }
 
+        // 🔹 MDC
+        MDC.put("requestId", requestId);
         MDC.put("correlationId", correlationId);
 
+        // 🔹 Response headers
+        response.setHeader(REQUEST_ID, requestId);
         response.setHeader(CORRELATION_ID, correlationId);
 
-        Map<String, String> headers = extractHeaders(request, correlationId);
+        Map<String, String> headers =
+                extractHeaders(request, requestId, correlationId);
 
+        // 🔥 Incoming request log (REQUEST ID AT TOP)
         log.info("""
-[{}] [{} {}] Incoming request - headers: {}
-""", correlationId, request.getMethod(), request.getRequestURI(), headers);
+[GATEWAY REQUEST]
+RequestId     : {}
+CorrelationId : {}
+Method        : {}
+Path          : {}
+Headers       : {}
+""",
+                requestId,
+                correlationId,
+                request.getMethod(),
+                request.getRequestURI(),
+                headers
+        );
 
         return true;
     }
@@ -51,27 +73,55 @@ public class GlobalLoggingInterceptor implements HandlerInterceptor {
                                 Exception ex) {
 
         try {
-            long start = (long) request.getAttribute(START_TIME);
-            long timeTaken = System.currentTimeMillis() - start;
+            long startTime = (long) request.getAttribute(START_TIME);
+            long timeTaken = System.currentTimeMillis() - startTime;
 
+            // 🔥 Outgoing response log (same structure)
             log.info("""
-[{}] [{} {}] Outgoing response | status={} | time={}ms
+[GATEWAY RESPONSE]
+RequestId     : {}
+CorrelationId : {}
+Method        : {}
+Path          : {}
+Status        : {}
+TimeTaken(ms): {}
 """,
+                    MDC.get("requestId"),
                     MDC.get("correlationId"),
                     request.getMethod(),
                     request.getRequestURI(),
                     response.getStatus(),
-                    timeTaken);
+                    timeTaken
+            );
 
             if (ex != null) {
-                log.error("Request completed with exception", ex);
+                log.error("""
+[GATEWAY RESPONSE ERROR]
+RequestId     : {}
+CorrelationId : {}
+Method        : {}
+Path          : {}
+Exception     : {}
+Message       : {}
+""",
+                        MDC.get("requestId"),
+                        MDC.get("correlationId"),
+                        request.getMethod(),
+                        request.getRequestURI(),
+                        ex.getClass().getName(),
+                        ex.getMessage(),
+                        ex
+                );
             }
         } finally {
-            MDC.clear();
+            MDC.clear(); // 🔥 VERY IMPORTANT
         }
     }
 
+    // ---------------- helpers ----------------
+
     private Map<String, String> extractHeaders(HttpServletRequest request,
+                                               String requestId,
                                                String correlationId) {
 
         Map<String, String> headers = new LinkedHashMap<>();
@@ -83,7 +133,10 @@ public class GlobalLoggingInterceptor implements HandlerInterceptor {
             headers.put(name, request.getHeader(name));
         }
 
+        // force IDs into logged headers
+        headers.put(REQUEST_ID, requestId);
         headers.put(CORRELATION_ID, correlationId);
+
         return headers;
     }
 
